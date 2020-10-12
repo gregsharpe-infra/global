@@ -1,0 +1,40 @@
+repos:
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.0.9 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+      - id: terraform-fmt
+      - id: shellcheck
+      - id: gofmt
+      - id: golint
+      - id: yapf
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 8a36145fa9c3f21e54e052cd976972892b4ffdfe
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: debug-statements
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: double-quote-string-fixer
+      - id: end-of-file-fixer
+      - id: file-contents-sorter
+      - id: fix-encoding-pragma
+      - id: flake8
+      - id: forbid-new-submodules
+      - id: mixed-line-ending
+      - id: name-tests-test
+      - id: pretty-format-json
+      - id: requirements-txt-fixer
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
