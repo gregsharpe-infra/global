@@ -12,6 +12,7 @@ data aws_iam_policy_document state_access {
     sid    = "StateBucketAccess"
     effect = "Allow"
     actions = [
+      "s3:ListObject",
       "s3:PutObject",
       "s3:GetObject"
     ]
@@ -24,12 +25,12 @@ data aws_iam_policy_document state_access {
     sid    = "StateDynamoDBAccess"
     effect = "Allow"
     actions = [
-      "dynamodb:SetItem",
-      "dynamodb:GetItem"
+      "dynamodb:PutItem",
+      "dynamodb:GetItem",
+      "dynamodb:DeleteItem"
     ]
     resources = [
       "arn:aws:dynamodb:eu-west-1:001567907213:table/gregsharpe-tfstate-lock",
-      "arn:aws:dynamodb:eu-west-1:001567907213:table/gregsharpe-tfstate-lock/*"
     ]
   }
 }
