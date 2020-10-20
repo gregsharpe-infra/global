@@ -1,5 +1,5 @@
 resource aws_iam_user terraform {
-  name = "terraform-automation"
+  name = "CI-terraform-state-access"
 }
 
 resource aws_iam_user_policy_attachment state_access {
