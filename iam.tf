@@ -9,16 +9,34 @@ resource aws_iam_user_policy_attachment state_access {
 
 data aws_iam_policy_document state_access {
   statement {
-    sid    = "StateBucketAccess"
+    sid    = "StateBucketPutObjects"
     effect = "Allow"
     actions = [
-      "s3:ListObject",
       "s3:PutObject",
       "s3:GetObject"
     ]
     resources = [
-      "arn:aws:s3:::gregsharpe-tfstate",
       "arn:aws:s3:::gregsharpe-tfstate/*"
+    ]
+  }
+  statement {
+    sid    = "StateBucketListBucket"
+    effect = "Allow"
+    actions = [
+      "s3:ListBucket"
+    ]
+    resources = [
+      "arn:aws:s3:::gregsharpe-tfstate"
+    ]
+  }
+  statement {
+    sid    = "EncryptedBucketRequiresKMSPerms"
+    effect = "Allow"
+    actions = [
+      "kms:GenerateDataKey"
+    ]
+    resources = [
+      "*"
     ]
   }
   statement {
