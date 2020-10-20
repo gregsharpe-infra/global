@@ -33,10 +33,11 @@ data aws_iam_policy_document state_access {
     sid    = "EncryptedBucketRequiresKMSPerms"
     effect = "Allow"
     actions = [
-      "kms:GenerateDataKey"
+      "kms:GenerateDataKey",
+      "kms:Decrypt"
     ]
     resources = [
-      "*"
+      "arn:aws:kms:eu-west-1:001567907213:key/cc53b69b-8b8b-4b6d-b1cf-89ff415752c6"
     ]
   }
   statement {
